@@ -1163,6 +1163,10 @@ stages:
       clean: all
     variables:
     - group: Xamarin Notarization
+    - name: TeamName
+      value: XamarinAndroid
+    - name: SYSTEM_ACCESSTOKEN
+      value: $(System.AccessToken)
     steps:
     - checkout: self
 
@@ -1203,9 +1207,6 @@ stages:
       inputs:
         signType: real
         azureSubscription: MicroBuild Signing Task (DevDiv)
-      env:
-        TeamName: XamarinAndroid
-        SYSTEM_ACCESSTOKEN: $(system.accesstoken)
 
     - script: >
         cd $(System.DefaultWorkingDirectory)/release-scripts &&
